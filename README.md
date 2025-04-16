@@ -2,6 +2,8 @@
 
 This project implements Room Occupancy Detection by analyzing IoT sensor data using the K-Means clustering algorithm on the Hadoop MapReduce framework. It classifies sensor readings into "Occupied" and "Not Occupied" clusters and visualizes the results using Power BI.
 
+
+
 📁 Dataset
 
 Dataset used: Room Occupancy Detection Data Set (UCI Repository)
@@ -13,6 +15,8 @@ Removed Occupancy and Date columns
 Retained only numerical features: Temperature, Humidity, Light, CO2, HumidityRatio
 
 Saved as sensor_data.csv
+
+
 
 🧮 Project Workflow
 
@@ -37,6 +41,8 @@ Generates centroids.txt with K=2 random centroids
 Upload:
 hdfs dfs -put centroids.txt /bda_projects/clusterinput
 
+
+
 📦 MapReduce Programs
 
 Phase 1: Iterative Clustering
@@ -56,6 +62,7 @@ Update and upload centroids.txt after each run
 
 Repeat until centroids converge
 
+
 Phase 2: Cluster Assignment
 Java Project Name: cluster.assignment
 
@@ -67,6 +74,8 @@ ClusterAssignDriver.java: Sets up the job with Distributed Cache
 
 Compile and export as KMeansClusterAssign.jar
 
+
+
 🚀 Running JAR on Hadoop
 
 hadoop jar C:/BDA_Project/KMeansClusterAssign.jar
@@ -76,6 +85,9 @@ cluster.assignment.ClusterAssignDriver
 /clusterinput/centroids.txt
 
 hdfs dfs -get /bda_projects/cluster_output/part-r-00000 C:/BDA_Project/final_clustered_output.txt
+
+
+
 
 📊 Power BI Visualization
 
@@ -99,6 +111,9 @@ Legend: Cluster
 
 Insight:
 Power BI visually separates "Occupied" and "Not Occupied" rooms based on CO2 and temperature levels, enabling data-driven space utilization strategies. This aids smart building automation for HVAC, lighting, and ventilation.
+
+
+
 
 📂 File Structure
 
@@ -125,6 +140,9 @@ Data
 Output
 └── final_clustered_output.txt
 
+
+
+
 🎯 Features
 
 Works with real IoT sensor data
@@ -137,6 +155,9 @@ Power BI dashboard for result visualization
 
 Uses unsupervised learning without labels
 
+
+
+
 📌 Future Improvements
 
 Add real-time data streaming support
@@ -146,6 +167,9 @@ Increase number of clusters (K > 2)
 Migrate to Apache Spark for faster performance
 
 Integrate anomaly detection modules
+
+
+
 
 📚 References
 
@@ -159,8 +183,9 @@ Apache Hadoop Documentation – MapReduce Tutorial
 
 UCI ML Repository – Room Occupancy Detection
 
-👩‍💻 Author
 
+
+👩‍💻 Author
 Aarti Kulkarni
 Bachelor of Technology in Electronics and Telecommunication
 Pillai College of Engineering, University of Mumbai
